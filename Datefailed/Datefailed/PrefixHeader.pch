@@ -1,0 +1,54 @@
+//
+//  PrefixHeader.pch
+//  HeNanCaiJing
+//
+//  Created by 赵兴 on 15/12/15.
+//  Copyright © 2015年 赵兴. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+// 是否支持富文本显示
+#define kTestChatAttachment 1
+
+
+#import "CommonLibrary.h"
+
+#import "BaseClassController.h"
+
+//#import "CustomUIHeader.h"
+
+#import "AppDelegate.h"
+
+//#import "AppUIHeaders.h"
+#import "NetworkSingleton.h"
+#import <AVFoundation/AVAsset.h>
+
+
+#define UIColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+
+#import "_header.h"
+/// ARC中使用 performSelector 报警告
+#define SuppressPerformSelectorLeakWarning(Stuff)                           \
+do {                                                                    \
+_Pragma("clang diagnostic push")                                    \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff;                                                              \
+_Pragma("clang diagnostic pop")                                     \
+} \
+while (0)
+
+
+#endif
